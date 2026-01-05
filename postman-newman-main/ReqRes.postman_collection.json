@@ -1,9 +1,10 @@
 {
 	"info": {
-		"_postman_id": "2e2aa2af-8b62-480a-96ee-f1d8bdd10e01",
+		"_postman_id": "cea03a3b-ccb0-4724-8e3e-5496405191fb",
 		"name": "ReqRes",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "20746734"
+		"_exporter_id": "50504316",
+		"_collection_link": "https://nnxuanhuonggg-3373452.postman.co/workspace/XuanHuong's-Workspace~e213898b-efa2-49b5-84e9-66c44aa87b1b/collection/50504316-cea03a3b-ccb0-4724-8e3e-5496405191fb?action=share&source=collection_link&creator=50504316"
 	},
 	"item": [
 		{
@@ -159,7 +160,22 @@
 							"});\r",
 							""
 						],
-						"type": "text/javascript"
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {}
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"const key = pm.environment.get('apiKey') || pm.collectionVariables.get('apiKey');\r",
+							"if (key) pm.request.headers.upsert({ key: 'x-api-key', value: key });\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {}
 					}
 				}
 			],
@@ -200,7 +216,23 @@
 							"});\r",
 							""
 						],
-						"type": "text/javascript"
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {}
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"const key = pm.environment.get('apiKey') || pm.collectionVariables.get('apiKey');\r",
+							"if (key) pm.request.headers.upsert({ key: 'x-api-key', value: key });\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {}
 					}
 				}
 			],
@@ -462,7 +494,23 @@
 							"});\r",
 							""
 						],
-						"type": "text/javascript"
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {}
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"const key = pm.environment.get('apiKey') || pm.collectionVariables.get('apiKey');\r",
+							"if (key) pm.request.headers.upsert({ key: 'x-api-key', value: key });\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {}
 					}
 				}
 			],
@@ -520,7 +568,23 @@
 							"});\r",
 							""
 						],
-						"type": "text/javascript"
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {}
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"const key = pm.environment.get('apiKey') || pm.collectionVariables.get('apiKey');\r",
+							"if (key) pm.request.headers.upsert({ key: 'x-api-key', value: key });\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {}
 					}
 				}
 			],
@@ -553,48 +617,40 @@
 			"name": "Update user",
 			"event": [
 				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"const key = pm.environment.get('apiKey') || pm.collectionVariables.get('apiKey');\r",
+							"if (key) pm.request.headers.upsert({ key: 'x-api-key', value: key });\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {}
+					}
+				},
+				{
 					"listen": "test",
 					"script": {
 						"exec": [
-							"pm.test('Status code should be 200', () => {\r",
-							"  pm.response.to.have.status(200);\r",
+							"pm.test('Status code should be 204', () => {\r",
+							"  pm.response.to.have.status(204);\r",
 							"});\r",
 							"\r",
-							"pm.test('Content-Type should be application/json', () => {\r",
-							"    pm.response.to.have.header('Content-Type', 'application/json; charset=utf-8');\r",
-							"});\r",
-							"\r",
-							"const jsonData = pm.response.json();\r",
-							"\r",
-							"pm.test('Body - name should be morpheus', () => {\r",
-							"  pm.expect(jsonData.name).to.eql('morpheus');\r",
-							"});\r",
-							"\r",
-							"pm.test('Body - job should be zion resident', () => {\r",
-							"  pm.expect(jsonData.job).to.eql('zion resident');\r",
-							"});\r",
-							"\r",
-							"pm.test('Body - updated at should be a string and match UTC format', () => {\r",
-							"  pm.expect(jsonData.updatedAt).to.be.a('string').and.match(/^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}.\\d{3}Z$/);\r",
+							"pm.test('Content-Length should be 0', () => {\r",
+							"    pm.response.to.have.header('Content-Length', '0');\r",
 							"});\r",
 							""
 						],
-						"type": "text/javascript"
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {}
 					}
 				}
 			],
 			"request": {
-				"method": "PATCH",
+				"method": "DELETE",
 				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n    \"name\": \"morpheus\",\r\n    \"job\": \"zion resident\"\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
 				"url": {
 					"raw": "{{baseUrl}}/users/2",
 					"host": [
@@ -844,6 +900,53 @@
 				}
 			},
 			"response": []
+		}
+	],
+	"auth": {
+		"type": "apikey",
+		"apikey": [
+			{
+				"key": "value",
+				"value": "reqres_f2ccde8035214474ad583c8d15ca75d9",
+				"type": "string"
+			},
+			{
+				"key": "key",
+				"value": "x-api-key",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"requests": {},
+				"exec": [
+					"const key = pm.collectionVariables.get('apiKey') || pm.environment.get('apiKey');\r",
+					"if (key) pm.request.headers.upsert({ key: 'x-api-key', value: key });\r",
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"requests": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "apiKey",
+			"value": ""
 		}
 	]
 }
